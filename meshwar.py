@@ -9,12 +9,12 @@ import geopy.geocoders
 
 # Adjust Geocoder options
 geopy.geocoders.options.default_user_agent = "meshwar_calculator_egypt/5.0"
-geolocator = Nominatim()
+geolocator = Nominatim(user_agent="meshwar_calculator_egypt/5.0")
 
 # Storage keys
 K_PROFILES, K_LAST, K_TOLLS, K_PAX, K_HIST = (
     "meshwar.profiles", "meshwar.last_profile", "meshwar.tolls", "meshwar.pax", "meshwar.history"
-)a
+)
 DEFAULT_PROFILES = {"سيارتي": {"fuel_price": 15.00, "kpl": 11.0}}
 
 # Styling Palette
@@ -467,4 +467,4 @@ async def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.run(main)
+    ft.app(target=main)
