@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -24,6 +24,9 @@ jobs:
 
       - name: Accept Android Licenses
         run: |
+          mkdir -p $ANDROID_HOME/licenses
+          echo "243330a17d3d06a424107d4be92452d26376513a" > $ANDROID_HOME/licenses/android-sdk-license
+          echo "84831b9409646a918e30573bab4c9c91346d8abd" > $ANDROID_HOME/licenses/android-sdk-preview-license
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Install Linux/GTK Dependencies
@@ -41,7 +44,7 @@ jobs:
           build-number: ${{ github.run_number }}
           build-version: '1.0.0'
           output-directory: build/apk
-          extra-args: '--module-name meshwar'
+          extra-args: '--module-name meshwar --verbose'
           cache: true
           archive-output: false
 
