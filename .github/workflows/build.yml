@@ -1,0 +1,35 @@
+name: Build Meshwar APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build Flet app
+        uses: flet-dev/flet-build-action@v1.0.0
+        with:
+          target: apk
+          working-directory: .
+          runner-python-version: '3.12'
+          bundled-python-version: '3.12'
+          build-number: ${{ github.run_number }}
+          build-version: '1.0.0'
+          output-directory: build/apk
+          extra-args: '--module-name meshwar'
+          cache: true
+          install-linux-dependencies: true
+          archive-output: false
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Meshwar-Release-APK
+          path: build/apk/*.apk
