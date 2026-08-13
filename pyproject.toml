@@ -5,15 +5,10 @@ description = "Meshwar Egyptian transit app"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "flet>=0.26.0",
     "flet-map",
     "geopy",
     "plyer",
-]
-
-[dependency-groups]
-dev = [
-    "flet>=0.26.0",
-    "flet-cli>=0.26.0",
 ]
 
 [tool.flet]
