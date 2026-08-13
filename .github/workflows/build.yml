@@ -13,6 +13,24 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android Licenses
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
+      - name: Install Linux/GTK Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgtk-3-dev liblzma-dev clang cmake ninja-build pkg-config
+
       - name: Build Flet app
         uses: flet-dev/flet-build-action@v1.0.0
         with:
@@ -25,7 +43,6 @@ jobs:
           output-directory: build/apk
           extra-args: '--module-name meshwar'
           cache: true
-          install-linux-dependencies: true
           archive-output: false
 
       - name: Upload APK Artifact
