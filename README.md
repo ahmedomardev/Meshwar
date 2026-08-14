@@ -1,3 +1,8 @@
+![Untested](https://img.shields.io/badge/status-untested--unmaintained-red)
+![For Fun](https://img.shields.io/badge/project_type-for_fun-ff69b4)
+![Errors](https://img.shields.io/badge/errors-IDC_fork_and_fix_it-red)
+![Bugs](https://img.shields.io/badge/bugs-fix_it_yourself-orange)
+![Support](https://img.shields.io/badge/support-fork_it_bro-purple)
 # Meshwar (مشوار) 🚗🇪🇬
 
 **Meshwar** is an Egyptian transit cost calculator designed to help users find the cheapest and most efficient way to travel from Point A to Point B across Egypt. Whether navigating public transport, microbuses, metro, or ride-hailing services, Meshwar helps you optimize your daily commute budget.
@@ -41,3 +46,6 @@ To run the application locally on your desktop for development or testing:
    git clone [https://github.com/ahmedomardev/Meshwar.git](https://github.com/ahmedomardev/Meshwar.git)
    cd Meshwar
    ```
+> ⚠️ **NO BUG FIXES OR SUPPORT PROVIDED**
+> 
+> This code comes with zero guarantees and I genuinely do not care about errors, edge cases, or broken builds. It is fully open source, if it breaks or you need a feature, **fork the repo and fix it yourself**. PRs are welcome, but issue tickets will be ignored. Just consider it like a template and also I'm not responsible if a thermonuclear war happens because you did some shady stuff with it.
